@@ -14,14 +14,16 @@ $(document).ready(function () {
 
     switch (data.Type) {
       case 0: // JOIN
-        if (data.User == $("#uname").text()) {
-          li.innerText = "You joined the chat room.";
-        } else {
-          li.innerText = data.User + " joined the chat room.";
-        }
+        li.innerText =
+          $("#uname").text() === data.User
+            ? "you joined the chat room."
+            : data.User + " joined the chat room.";
         break;
       case 1: // LEAVE
-        li.innerText = data.User + " left the chat room.";
+        li.innerText =
+          $("#uname").text() === data.User
+            ? "you left the chat room."
+            : data.User + " left the chat room.";
         break;
       case 2: // MESSAGE
         var username = document.createElement("strong");

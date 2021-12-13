@@ -10,14 +10,16 @@ var fetch = function () {
       var li = document.createElement("li");
       switch (event.Type) {
         case 0: // JOIN
-          if (event.User == $("#uname").text()) {
-            li.innerText = "You joined the chat room.";
-          } else {
-            li.innerText = event.User + " joined the chat room.";
-          }
+          li.innerText =
+            event.User == $("#uname").text()
+              ? "You joined the chat room."
+              : event.User + " joined the chat room.";
           break;
         case 1: // LEAVE
-          li.innerText = event.User + " left the chat room.";
+          li.innerText =
+            $("#uname").text() === data.User
+              ? "you left the chat room."
+              : data.User + " left the chat room.";
           break;
         case 2: // MESSAGE
           var username = document.createElement("strong");

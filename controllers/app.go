@@ -35,7 +35,7 @@ type baseController struct {
 // It's used for language option check and setting.
 func (this *baseController) Prepare() {
 	// Reset language option.
-	this.Lang = "" // This field is from i18n.Locale.
+	this.Lang = "ko" // This field is from i18n.Locale.
 
 	// 1. Get language information from 'Accept-Language'.
 	al := this.Ctx.Request.Header.Get("Accept-Language")
