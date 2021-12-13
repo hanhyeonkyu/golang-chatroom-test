@@ -4,20 +4,20 @@
 {{end}}
 {{define "body"}}
 <div class="container">
-    <h3>{{i18n .Lang "username"}}: <span id="uname">{{.UserName}}</span></h3>
-    <h4>{{i18n .Lang "send_box"}}:</h4>
-    <form class="form-inline">
-        <div class="col-md-6 form-group">
-            <input id="sendbox" type="text" class="form-control" onkeydown="if(event.keyCode==13)return false;" required>
-        </div>
-        <button id="sendbtn" type="button" class="btn btn-default">{{i18n .Lang "Send"}}</button>
-    </form>
-</div>
-
-<div class="container">
-    <h3>{{i18n .Lang "chat_history"}}:</h3>
-    <ul id="chatbox">
+    <h4>{{i18n .Lang "chat_history"}}</h4>
+    <ul id="chatbox" style="border: #b1b1b1 2px solid; border-radius: 2rem; height: 40rem; overflow: scroll; background: #fffb4d;">
         <li>{{i18n .Lang "welcome"}}</li>
     </ul>
+</div>
+<div class="container">
+    <h5>{{i18n .Lang "username"}}: <span id="uname">{{.UserName}}</span></h5>
+    <div style="display: flex; align-items: center;">
+        <form class="form-inline" style="flex: 1; display: flex;">
+            <div style="flex: 1; margin-right: 1rem;">
+                <input id="sendbox" type="text" class="form-control" onkeydown="if(event.keyCode==13)return false;" required>
+            </div>
+            <button id="sendbtn" type="button" class="btn btn-default">{{i18n .Lang "Send"}}</button>
+        </form>    
+    </div>
 </div>
 {{end}}
